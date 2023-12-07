@@ -10,16 +10,24 @@ admin.initializeApp({
 const db = admin.firestore();
 
 // test-app 컬렉션을 readDb에 담는다
-const readDb = db.collection("test-app");
+const testApp = db.collection("test-app");
 
 // readDb 중 test Doc을 읽어와 getTest에 담는다
 // const getTest = await readDb.doc("test").get();
+// test-app 컬렉션을 변수에 담기
 
-const getTest = await readDb.get();
-getTest.forEach((doc) => {
-  console.log("문서확인" + doc);
-  console.log(doc.id, " : ", doc.data());
+// 비동기
+await testApp.add({
+  hihi: {
+    name: "test",
+    today: "I was car",
+  },
+  hehe: {
+    name: "test2",
+    today: "I lost my home",
+  },
+  haha: {
+    name: "test3",
+    today: "I lost my job",
+  },
 });
-
-// 확인
-console.log(getTest.data());
