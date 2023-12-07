@@ -12,12 +12,7 @@ const db = admin.firestore();
 // test-app 컬렉션을 readDb에 담는다
 const testApp = db.collection("test-app");
 
-// readDb 중 test Doc을 읽어와 getTest에 담는다
-// const getTest = await readDb.doc("test").get();
-// test-app 컬렉션을 변수에 담기
-
-// 비동기
-await testApp.add({
+const data = {
   hihi: {
     name: "test",
     today: "I was car",
@@ -30,4 +25,8 @@ await testApp.add({
     name: "test3",
     today: "I lost my job",
   },
-});
+};
+
+for (const key in data) {
+  testApp.doc(key).set(data[key]);
+}
