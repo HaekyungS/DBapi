@@ -1,0 +1,15 @@
+{
+  "name": "dbapi",
+  "version": "1.0.0",
+  "description": "- eapress 를 사용하여 firestorage nosql연결 및 CRUD 만들기",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "zoe",
+  "license": "ISC",
+  "dependencies": {
+    "firebase-admin": "^11.11.1"
+  },
+  "type": "module"
+}
