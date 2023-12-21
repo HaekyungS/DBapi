@@ -12,8 +12,9 @@ const db = admin.firestore();
 // test-app이란 컬렉션에 test 라는 문서 넣기
 const testApp = db.collection("test-app");
 
-const selectData = await testApp.where("name", "==", "test").get();
-
-selectData.forEach((doc) => {
-  console.log(doc.id, "=>", doc.data());
-});
+testApp.doc("hehe").set(
+  {
+    winter: "방율이도바보",
+  },
+  { merge: true }
+);
