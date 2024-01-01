@@ -9,12 +9,20 @@ admin.initializeApp({
 // firestore
 const db = admin.firestore();
 
-// test-app이란 컬렉션에 test 라는 문서 넣기
-const testApp = db.collection("test-app");
+// DB 추가/업데이트
+export const updateDB = async (collect, doc, field, value, merge) => {
+  const updateCollection = db.collection(collect);
+  updateCollection.doc(doc).set(
+    {
+      field: value,
+    },
+    { merge: merge }
+  );
+};
 
-testApp.doc("hehe").set(
-  {
-    winter: "방율이도바보",
-  },
-  { merge: true }
-);
+// DB 읽기
+export const readDB = async (collect, doc) => {
+  const readCollection = db.collection(collect);
+  const readDoc = await readCollection.doc(doc).get();
+  return readDoc.data();
+};
